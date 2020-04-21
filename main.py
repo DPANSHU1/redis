@@ -47,7 +47,8 @@ class redis(object):
     def zrange(self,key,start,end):
         if key not in self.item:
             return "NILL"
-        l=self.item[key]
+        l=list(self.item[key])
+        l=l[start:end]
         ans=""
         for i in l:
             ans+='\n'.join(l[i])
